@@ -110,22 +110,22 @@ resource "aws_security_group" "sg" {
 
 ################ EC2 Instances ##########################
 
-# resource "aws_instance" "ec2_1" {
-#   ami           = "ami-007020fd9c84e18c7"
-#   instance_type = "t2.micro"
-#   subnet_id     = aws_subnet.mySubnet_1.id
-#   key_name = "dev-account"
-#   tags = {
-#     Name = "HelloWorld"
-#   }
-# }
+resource "aws_instance" "ec2_1" {
+  ami           = "ami-007020fd9c84e18c7"
+   instance_type = "t2.micro"
+   subnet_id     = aws_subnet.mySubnet_1.id
+   key_name = "dev-account"
+   tags = {
+     Name = "HelloWorld"
+   }
+ }
 
-# resource "aws_instance" "ec2_2" {
-#   ami           = "ami-007020fd9c84e18c7"
-#   instance_type = "t2.micro"
-#   subnet_id     = aws_subnet.mySubnet_2.id
-#   key_name = "dev-account"
-#   tags = {
-#     Name = "HelloWorld"
-#   }
-# }
+ resource "aws_instance" "ec2_2" {
+   ami           = "ami-007020fd9c84e18c7"
+   instance_type = "t2.micro"
+   subnet_id     = aws_subnet.mySubnet_2.id
+   key_name = "dev-account"
+   tags = {
+     Name = "HelloWorld"
+   }
+ }
