@@ -24,7 +24,7 @@ resource "aws_subnet" "mySubnet" {
   cidr_block = "10.0.1.0/24"
 
   #   tags = {
-  #     Name = "subnet"
+  #     Name = "subnet"                       # Name of the Subnet
   #   }
 }
 
@@ -55,7 +55,7 @@ resource "aws_security_group" "sg" {
   description = "Allow all inbound traffic"
   vpc_id      = aws_vpc.myVpc.id
 
-  ingress = [
+  ingress = [                   # Inbound Rule
     {
       description      = "All traffic"
       from_port        = 0    # All ports
@@ -69,12 +69,12 @@ resource "aws_security_group" "sg" {
     }
   ]
 
-  egress = [
+  egress = [             # Outbound Rule
     {
       from_port        = 0
       to_port          = 0
       protocol         = "-1"
-      cidr_blocks      = ["0.0.0.0/0"]
+      cidr_blocks      = ["0.0.0.0/0"]           # All traffic
       ipv6_cidr_blocks = ["::/0"]
       description      = "Outbound rule"
       prefix_list_ids  = null
@@ -102,6 +102,6 @@ resource "aws_instance" "ec2" {
   instance_type = "t2.micro"
   subnet_id     = aws_subnet.mySubnet.id
   tags = {
-    Name = "HelloWorld"
+    Name = "HelloWorld"           # Name of the Instance
   }
 }
